@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Page Title')
+
 @section('heading', 'Horolezectvo')
 @section('content')
 
@@ -21,9 +21,9 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->difficulty }}</td>
                             <td>
-                                <select name="ascendType">
+                                <select class='ascend-type' data-id="{{ $item->id }}" name="ascendType">
                                     @foreach (['top-rope', 'onsight', 'flash', 'redpoint'] as $value)
-                                        <option class = 'ascend-type' value="{{ $value }}" @if ($value == old('ascendType', $item->ascendType))
+                                        <option value="{{ $value }}" @if ($value == old('ascendType', $item->ascendType))
                                             selected="selected"
                                     @endif
                                     >{{ $value }}</option>

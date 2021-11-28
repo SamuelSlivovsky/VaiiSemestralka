@@ -106,15 +106,17 @@ class PathController extends Controller
     public function changeAscend(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id' => 'required|integer'
+            'id' => 'required|integer',
+            'value' => 'required|string',
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['error' => 'error', 'data' => $validator], 422);
+            //return response()->json(['error' => 'error', 'data' => $validator->errors()->all()], 422);
+            return $validator->errors()->all();
         }
 
         $path = Path::findOrFail($request->id); // ziskanie udajov
-        $path->ascendType = $request->ascendType;
+        $path->ascendType = $request->value;
         $path->save(); //ulozenie
         return response()->json(['success' => 'success'], 200);
     }

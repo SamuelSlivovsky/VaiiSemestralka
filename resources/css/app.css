@@ -261,15 +261,15 @@ th {
 }
 
 /* Add padding to containers */
-.register {
+.regContainer {
     padding: 16px;
     background-color: white;
 }
 
 /* Full-width input fields */
-.register input[type="text"],
-.register input[type="email"],
-.register input[type="password"] {
+.regContainer input[type="text"],
+.regContainer input[type="email"],
+.regContainer input[type="password"] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -278,9 +278,9 @@ th {
     background: #f1f1f1;
 }
 
-.register input[type="text"]:focus,
-.register input[type="email"]:focus,
-.register input[type="password"]:focus {
+.regContainer input[type="text"]:focus,
+.regContainer input[type="email"]:focus,
+.regContainer input[type="password"]:focus {
     background-color: #ddd;
     outline: none;
 }
@@ -302,7 +302,7 @@ th {
 }
 
 /* Add a blue text color to links */
-.register a {
+.regContainer a {
     color: dodgerblue;
 }
 
@@ -311,6 +311,39 @@ th {
     background-color: #f1f1f1;
     text-align: center;
 }
+
+/* Full-width inputs */
+.logContainer input[type="email"],
+.logContainer input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.logContainer button {
+    background-color: #04aa6d;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Add a hover effect for buttons */
+.logContainer button:hover {
+    opacity: 0.8;
+}
+
+/* Add padding to containers */
+.logContainer {
+    padding: 16px;
+}
+
 /*----------RESPONZIVITA-----------*/
 @media screen and (max-width: 700px) {
     .nadpis h1 {

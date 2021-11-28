@@ -2119,7 +2119,7 @@ var ascendType = document.querySelectorAll(".ascend-type");
 if (ascendType) {
   var _loop = function _loop(i) {
     var element = ascendType[i];
-    element.addEventListener("input", function () {
+    element.addEventListener("change", function () {
       sendToApi(element.dataset.id, element.value);
     });
   };
@@ -2130,7 +2130,7 @@ if (ascendType) {
 }
 
 function sendToApi(id, value) {
-  axios.post("/api/ascendTypes", {
+  axios.post("/api/ascendType", {
     id: parseInt(id),
     value: value
   }).then(function (response) {

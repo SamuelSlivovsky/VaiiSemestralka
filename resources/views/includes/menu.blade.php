@@ -33,12 +33,4 @@
             Register
         </a>
     @endguest
-
-
-
-
-
-
-
-
 </div>

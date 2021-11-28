@@ -4,7 +4,7 @@ const ascendType = document.querySelectorAll(".ascend-type");
 if (ascendType) {
     for (let i = 0; i < ascendType.length; i++) {
         const element = ascendType[i];
-        element.addEventListener("input", () => {
+        element.addEventListener("change", () => {
             sendToApi(element.dataset.id, element.value);
         });
     }
@@ -12,7 +12,7 @@ if (ascendType) {
 
 function sendToApi(id, value) {
     axios
-        .post("/api/ascendTypes", {
+        .post("/api/ascendType", {
             id: parseInt(id),
             value: value,
         })

@@ -1,44 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Page Title')
+
 @section('heading', 'Horolezectvo')
 @section('content')
 
-
-    <style>
-        /* Full-width inputs */
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        /* Set a style for all buttons */
-        button {
-            background-color: #04aa6d;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        /* Add a hover effect for buttons */
-        button:hover {
-            opacity: 0.8;
-        }
-
-        /* Add padding to containers */
-        .logContainer {
-            padding: 16px;
-        }
-
-    </style>
     <div class="logContainer">
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -60,9 +25,8 @@
 
             <!-- Remember Me -->
             <div>
-                <label for="remember_me" ">
-                                                                                        <input id=" remember_me"
-                    type="checkbox" name="remember">
+                <label for="remember_me">
+                    <input id=" remember_me" type="checkbox" name="remember">
                     <span>Remember me</span>
                 </label>
             </div>
