@@ -8,11 +8,13 @@
             <div>
                 <table class="fl-table">
                     <thead>
-                        <th>nazov</th>
-                        <th>obtiaznost</th>
-                        <th>typ</th>
-                        <th>datum</th>
-                        <th>pokusy</th>
+                        <tr>
+                            <th>nazov</th>
+                            <th>obtiaznost</th>
+                            <th>typ</th>
+                            <th>datum</th>
+                            <th>pokusy</th>
+                        </tr>
                     </thead>
                     <tbody>
                         @foreach ($paths as $item)
