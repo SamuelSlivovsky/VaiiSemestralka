@@ -8,17 +8,19 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
+            <h1>Log in</h1>
+            <hr>
             <!-- Email Address -->
-
+            <br>
             <div>
-                <label for="email"> E-mail</label>
+                <label for="email"> <b>E-mail</b></label>
 
                 <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus />
             </div>
 
             <!-- Password -->
             <div>
-                <label for="password"> Password</label>
+                <label for="password"><b>Password</b> </label>
 
                 <input id="password" type="password" name="password" required autocomplete="current-password" />
             </div>

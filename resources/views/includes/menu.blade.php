@@ -17,7 +17,7 @@
     <form method="POST" action="{{ route('logout') }}">
         @csrf
         @auth
-            <button id="logButton">
+            <button id="logButton" type="submit">
                 Log out
             </button>
         @endauth

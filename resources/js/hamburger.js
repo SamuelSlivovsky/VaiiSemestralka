@@ -5,11 +5,11 @@ var isBlock = false;
 button.addEventListener("click", function () {
     x.classList.toggle("responsive");
     button.classList.toggle("active");
-    if (!isBlock) {
-        logButton.style.display = "block";
-        isBlock = true;
-    } else {
-        logButton.style.display = "none";
-        isBlock = false;
-    }
+    // if (!isBlock) {
+    //     logButton.style.display = "block";
+    //     isBlock = true;
+    // } else {
+    //     logButton.style.display = "none";
+    //     isBlock = false;
+    // }
 });

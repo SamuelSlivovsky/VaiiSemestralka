@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Path;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class PathController extends Controller
@@ -16,7 +18,12 @@ class PathController extends Controller
     public function index()
     {
         $paths = Path::all();
-        return view('cesty', ['paths' => $paths]);
+        return view('cesty', ['paths' => $paths->where('user_id',  Auth::id())]);
+    }
+
+    public function routeAdd()
+    {
+        return view('addRoute');
     }
 
     /**
@@ -119,5 +126,35 @@ class PathController extends Controller
         $path->ascendType = $request->value;
         $path->save(); //ulozenie
         return response()->json(['success' => 'success'], 200);
+    }
+
+    public function addRoute(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required',
+            'difficulty' => 'required',
+            'ascendType' => 'required',
+            'date' => 'required',
+            'tries' => 'required',
+        ]);
+
+        DB::table('paths')->insert([
+            'name' => $request->input('name'),
+            'difficulty' => $request->input('difficulty'),
+            'user_id' => Auth::id(),
+            'ascendType' => $request->input('ascendType'),
+            'date' => $request->input('date'),
+            'tries' => $request->input('tries'),
+        ]);
+
+        return redirect('cesty');
+    }
+
+    public function delete($id)
+    {
+
+        $delete = DB::table('paths')->where('id', $id)->delete();
+        return redirect('cesty');
     }
 }

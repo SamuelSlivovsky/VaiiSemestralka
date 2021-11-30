@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AddRoute;
 use App\Http\Controllers\PathController;
+use App\Models\Path;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,5 +28,12 @@ Route::get('/lezenie-na-slovensku', function () {
 });
 
 Route::get('/cesty', [PathController::class, 'index']);
+
+Route::get('/pridaj', function () {
+    return view('pridaj');
+});
+
+Route::post('add', [PathController::class, 'addRoute']);
+Route::get('delete/{id}', [PathController::class, 'delete']);
 
 require __DIR__ . '/auth.php';
