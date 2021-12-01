@@ -14,15 +14,14 @@
             <br>
             <div>
                 <label for="email"> <b>E-mail</b></label>
-
                 <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus />
             </div>
 
             <!-- Password -->
             <div>
                 <label for="password"><b>Password</b> </label>
-
                 <input id="password" type="password" name="password" required autocomplete="current-password" />
+                <span>@error('email'){{ $message }} @enderror</span>
             </div>
 
             <!-- Remember Me -->
@@ -34,16 +33,12 @@
             </div>
 
             <div>
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        Forgout your password?
-                    </a>
-                @endif
 
                 <button>
                     Log in
                 </button>
             </div>
+
 
         </form>
     </div>

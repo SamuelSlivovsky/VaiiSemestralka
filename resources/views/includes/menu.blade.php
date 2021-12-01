@@ -24,7 +24,7 @@
     </form>
 
     @guest
-        <a class=' log {{ str_contains(request()->url(), 'login') ? 'activ' : '' }}' href="login">
+        <a class=' log {{ str_contains(request()->url(), 'login') ? 'active' : '' }}' href="login">
             Log in
         </a>
 
