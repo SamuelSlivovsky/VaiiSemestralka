@@ -6,22 +6,31 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css?v=') . time() }}" rel="stylesheet">
+
 
 </head>
 
 <body>
-    <div class="nadpis">
+
+    {{-- <div class="nadpis">
         <h1>@yield('heading')</h1>
-    </div>
+    </div> --}}
 
     @include('includes.menu')
     <main>
         @yield('content')
+        @include('includes.footer')
     </main>
+
     <script src="{{ asset('js/app.js') }}">
 
     </script>
+
+
+
+
 </body>
+
 
 </html>

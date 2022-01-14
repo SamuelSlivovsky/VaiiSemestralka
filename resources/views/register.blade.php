@@ -2,7 +2,7 @@
 
 @section('heading', 'Horolezectvo')
 @section('content')
-    
+    <section class="full-page">
     <div class="regContainer">
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -50,4 +50,5 @@
 
         </form>
     </div>
+</section>
 @endsection

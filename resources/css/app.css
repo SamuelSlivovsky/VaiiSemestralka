@@ -1,5 +1,9 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+html {
+    scroll-behavior: smooth;
+}
 body {
-    background-color: #f2f2f2;
+    background-color: #e6e6e6;
     font-family: Helvetica, sans-serif;
 }
 
@@ -8,14 +12,109 @@ body {
     margin: 0 auto;
 }
 
-.nadpis h1 {
+#top {
+    height: 10px;
+}
+.landing {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-image: url("https://images.unsplash.com/photo-1544009109-66b65c1309df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80");
+}
+
+.landing h1 {
+    justify-content: center;
+    align-items: center;
+    padding-top: 20%;
     text-align: center;
     font-size: 80px;
-    width: 100%;
+    display: flex;
+}
+
+.landing img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+.footer {
+    text-align: center;
+    background-color: #e48d26;
+    position: relative;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icons {
+    padding: 0;
+    list-style: none;
+    margin: 1em;
+}
+.social-icons li {
+    display: inline-block;
+    margin: 0.15em;
+    position: relative;
+    font-size: 1.2em;
+}
+.social-icons i {
+    color: #fff;
+    position: absolute;
+    top: 21px;
+    left: 21px;
+    transition: all 265ms ease-out;
+}
+.social-icons a {
+    display: inline-block;
+}
+.social-icons a:before {
+    transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    content: " ";
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    display: block;
+    background: linear-gradient(45deg, #39393a, #302c2c);
+    transition: all 265ms ease-out;
+}
+.social-icons a:hover:before {
+    transform: scale(0);
+    transition: all 265ms ease-in;
+}
+.social-icons a:hover i {
+    transform: scale(2.2);
+    -ms-transform: scale(2.2);
+    -webkit-transform: scale(2.2);
+    color: #302c2c;
+    background: -webkit-linear-gradient(45deg, #39393a, #302c2c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 265ms ease-in;
 }
 
 .sekcia {
     width: 100%;
+    transition: 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.full-page {
+    height: 100vh;
+}
+.panel {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    font-size: 10vmin;
+    padding: 1em;
+    box-sizing: border-box;
+    color: hsla(0, 0%, 100%, 0.1);
+    cursor: default;
 }
 
 .sirka-stranky {
@@ -43,6 +142,9 @@ body {
     justify-content: space-between;
 }
 
+.co-je-lez {
+    margin-top: 5rem;
+}
 .clanok-lez.opacne {
     flex-direction: row-reverse;
 }
@@ -181,7 +283,7 @@ body {
 .menu .log {
     float: right;
     display: block;
-    color: #3d3d3d;
+    color: #39393a;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -220,7 +322,7 @@ body {
 }
 
 .menu a.active {
-    background-color: #3d3d3d;
+    background-color: #39393a;
     color: white;
 }
 
@@ -228,7 +330,7 @@ body {
     float: right;
     display: block;
     width: fit-content;
-    background: #555555;
+    background: #415a77;
     border: none;
     color: white;
     padding: 13.5px 32px;
@@ -270,12 +372,12 @@ body {
 
 .fl-table thead th {
     color: #ffffff;
-    background: #4fc3a1;
+    background: #35332e;
 }
 
 .fl-table thead th:nth-child(odd) {
     color: #ffffff;
-    background: #324960;
+    background: #eb9129;
 }
 
 .fl-table tr:nth-child(even) {
@@ -287,7 +389,7 @@ body {
 /* Add padding to containers */
 .regContainer {
     padding: 16px;
-    background-color: white;
+    background-color: #f9f9fa;
 }
 
 /* Full-width input fields */
@@ -311,7 +413,7 @@ body {
 
 /* Set a style for the submit button */
 .registerbtn {
-    background-color: #04aa6d;
+    background-color: #297373;
     color: white;
     padding: 16px 20px;
     margin: 8px 0;
@@ -332,7 +434,7 @@ body {
 
 /* Set a grey background color and center the text of the "sign in" section */
 .signin {
-    background-color: #f1f1f1;
+    background-color: #f9f9fa;
     text-align: center;
 }
 
@@ -345,6 +447,7 @@ body {
 /* Full-width inputs */
 .logContainer input[type="email"],
 .logContainer input[type="password"] {
+    background-color: #ddd;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -355,7 +458,7 @@ body {
 
 /* Set a style for all buttons */
 .logContainer button {
-    background-color: #04aa6d;
+    background-color: #297373;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -395,7 +498,7 @@ body {
 #addButton {
     background-color: white;
     color: black;
-    border: 2px solid greenyellow;
+    border: 2px solid #85ffc7;
     padding: 3px 15px;
     text-align: center;
     text-decoration: none;
@@ -409,7 +512,7 @@ body {
     font-size: 30px;
 }
 #addButton:hover {
-    background-color: greenyellow;
+    background-color: #85ffc7;
     cursor: pointer;
     color: gray;
 }
@@ -429,21 +532,20 @@ body {
 
 .add-route-container {
     border-radius: 5px;
-    background-color: #f2f2f2;
+    background-color: #f9f9fa;
     padding: 20px;
-}
-
-.add-route-container {
-    margin-top: 10px;
 }
 
 /*----------RESPONZIVITA-----------*/
 
 @media screen and (max-width: 700px) {
-    .nadpis h1 {
+    .landing h1 {
         font-size: 50px;
     }
 
+    .footer {
+        height: 200px;
+    }
     .sirka-stranky {
         width: 75%;
     }

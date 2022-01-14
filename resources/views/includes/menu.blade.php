@@ -1,5 +1,5 @@
 <div class="menu" id="myMenu">
-    <a href="/" class="{{ Request::is('/') ? 'active' : '' }}">
+    <a href="/#top" class="{{ Request::is('/') ? 'active' : '' }}">
         <img class="karabina" src="{{ URL::asset('/image/carabiner.png') }}" width="60" height="30" alt="" /></a>
     <a href="lezenie-na-slovensku"
         class="{{ str_contains(request()->url(), '/lezenie-na-slovensku') ? 'active' : '' }}">Lezenie na Slovensku</a>

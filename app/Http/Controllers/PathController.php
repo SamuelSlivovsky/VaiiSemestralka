@@ -154,7 +154,7 @@ class PathController extends Controller
     public function delete($id)
     {
 
-        $delete = DB::table('paths')->where('id', $id)->delete();
+        $delete = DB::table('paths')->where('id', $id)->where('user_id', Auth::id())->delete();
         return redirect('cesty');
     }
 }
