@@ -1,15 +1,8 @@
 @extends('layouts.app')
-<div class="landing">
-    <h1>Horolezectvo</h1>
-    <a href="#top"> <img src="https://popupfilmresidency.org/wp-content/uploads/2019/05/white-down-arrow-png-2.png"
-            alt="sipka"></a>
-</div>
 
-@section('heading', 'Horolezectvo')
 @section('content')
 
     <section class="sekcia">
-        <div id="top"></div>
         <div class="sirka-stranky">
 
             <div class="co-je-lez">
@@ -35,7 +28,6 @@
                     </div>
                 </div>
             </div>
-
 
 
             <div class="ako-zacat-liezt">
@@ -70,7 +62,7 @@
                     </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     </section>
 @endsection

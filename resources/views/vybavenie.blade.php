@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('heading', 'Horolezectvo')
+
 @section('content')
 
     @auth

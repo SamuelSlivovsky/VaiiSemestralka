@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 
-@section('heading', 'Horolezectvo')
 @section('content')
     <section class="full-page">
         <div class="logContainer">
@@ -34,7 +33,7 @@
 
                 <div>
 
-                    <button>
+                    <button class="log-button">
                         Log in
                     </button>
                 </div>

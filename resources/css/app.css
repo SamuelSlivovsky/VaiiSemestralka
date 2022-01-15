@@ -1,4 +1,4 @@
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+@import "~@fortawesome/fontawesome-free/css/all.css";
 html {
     scroll-behavior: smooth;
 }
@@ -12,9 +12,6 @@ body {
     margin: 0 auto;
 }
 
-#top {
-    height: 10px;
-}
 .landing {
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -105,6 +102,7 @@ body {
 
 .full-page {
     height: 100vh;
+    margin-bottom: 1rem;
 }
 .panel {
     position: relative;
@@ -142,9 +140,6 @@ body {
     justify-content: space-between;
 }
 
-.co-je-lez {
-    margin-top: 5rem;
-}
 .clanok-lez.opacne {
     flex-direction: row-reverse;
 }
@@ -412,7 +407,7 @@ body {
 }
 
 /* Set a style for the submit button */
-.registerbtn {
+.log-button {
     background-color: #297373;
     color: white;
     padding: 16px 20px;
@@ -423,7 +418,7 @@ body {
     opacity: 0.9;
 }
 
-.registerbtn:hover {
+.log-button:hover {
     opacity: 1;
 }
 
@@ -454,22 +449,6 @@ body {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-.logContainer button {
-    background-color: #297373;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-/* Add a hover effect for buttons */
-.logContainer button:hover {
-    opacity: 0.8;
 }
 
 /* Add padding to containers */
@@ -711,4 +690,50 @@ body {
     .menu .icon.active .line:nth-child(2) {
         opacity: 0;
     }
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.profil {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+    background-color: #f9f9fa;
 }

@@ -2068,8 +2068,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _changeTries__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_changeTries__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _changeAscend__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./changeAscend */ "./resources/js/changeAscend.js");
 /* harmony import */ var _changeAscend__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_changeAscend__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _scroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scroll */ "./resources/js/scroll.js");
-/* harmony import */ var _scroll__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_scroll__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modal */ "./resources/js/modal.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modal__WEBPACK_IMPORTED_MODULE_3__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -2205,152 +2205,48 @@ button.addEventListener("click", function () {
 
 /***/ }),
 
-/***/ "./resources/js/scroll.js":
-/*!********************************!*\
-  !*** ./resources/js/scroll.js ***!
-  \********************************/
+/***/ "./resources/js/modal.js":
+/*!*******************************!*\
+  !*** ./resources/js/modal.js ***!
+  \*******************************/
 /***/ (() => {
 
-(function () {
-  "use strict";
-  /*[pan and well CSS scrolls]*/
+var modalEdit = document.getElementById("editModal");
+var modalDelete = document.getElementById("deleteModal"); // Get the button that opens the modal
 
-  var pnls = document.querySelectorAll(".panel").length,
-      scdir,
-      hold = false;
+var btnEdit = document.getElementById("btnEdit");
+var btnDelete = document.getElementById("btnDelete"); // Get the <span> element that closes the modal
 
-  function _scrollY(obj) {
-    var slength,
-        plength,
-        pan,
-        step = 100,
-        vh = window.innerHeight / 100,
-        vmin = Math.min(window.innerHeight, window.innerWidth) / 100;
+var spanEdit = document.getElementById("closeEdit");
+var spanDelete = document.getElementById("closeDelete"); // When the user clicks the button, open the modal
 
-    if (this !== undefined && this.id === "sekcia" || obj !== undefined && obj.id === "sekcia") {
-      pan = this || obj;
-      plength = parseInt(pan.offsetHeight / vh);
-    }
+btnEdit.onclick = function () {
+  modalEdit.style.display = "block";
+};
 
-    if (pan === undefined) {
-      return;
-    }
+btnDelete.onclick = function () {
+  modalDelete.style.display = "block";
+}; // When the user clicks on <span> (x), close the modal
 
-    plength = plength || parseInt(pan.offsetHeight / vmin);
-    slength = parseInt(pan.style.transform.replace("translateY(", ""));
 
-    if (scdir === "up" && Math.abs(slength) < plength - plength / pnls) {
-      slength = slength - step;
-    } else if (scdir === "down" && slength < 0) {
-      slength = slength + step;
-    } else if (scdir === "top") {
-      slength = 0;
-    }
+spanEdit.onclick = function () {
+  modalEdit.style.display = "none";
+};
 
-    if (hold === false) {
-      hold = true;
-      pan.style.transform = "translateY(" + slength + "vh)";
-      setTimeout(function () {
-        hold = false;
-      }, 1000);
-    }
+spanDelete.onclick = function () {
+  modalDelete.style.display = "none";
+}; // When the user clicks anywhere outside of the modal, close it
 
-    console.log(scdir + ":" + slength + ":" + plength + ":" + (plength - plength / pnls));
+
+window.onclick = function (event) {
+  if (event.target == modalEdit) {
+    modalEdit.style.display = "none";
   }
-  /*[swipe detection on touchscreen devices]*/
 
-
-  function _swipe(obj) {
-    var swdir,
-        sX,
-        sY,
-        dX,
-        dY,
-        threshold = 100,
-
-    /*[min distance traveled to be considered swipe]*/
-    slack = 50,
-
-    /*[max distance allowed at the same time in perpendicular direction]*/
-    alT = 500,
-
-    /*[max time allowed to travel that distance]*/
-    elT
-    /*[elapsed time]*/
-    ,
-        stT;
-    /*[start time]*/
-
-    obj.addEventListener("touchstart", function (e) {
-      var tchs = e.changedTouches[0];
-      swdir = "none";
-      sX = tchs.pageX;
-      sY = tchs.pageY;
-      stT = new Date().getTime(); //e.preventDefault();
-    }, false);
-    obj.addEventListener("touchmove", function (e) {
-      e.preventDefault();
-      /*[prevent scrolling when inside DIV]*/
-    }, false);
-    obj.addEventListener("touchend", function (e) {
-      var tchs = e.changedTouches[0];
-      dX = tchs.pageX - sX;
-      dY = tchs.pageY - sY;
-      elT = new Date().getTime() - stT;
-
-      if (elT <= alT) {
-        if (Math.abs(dX) >= threshold && Math.abs(dY) <= slack) {
-          swdir = dX < 0 ? "left" : "right";
-        } else if (Math.abs(dY) >= threshold && Math.abs(dX) <= slack) {
-          swdir = dY < 0 ? "up" : "down";
-        }
-
-        if (obj.id === "sekcia") {
-          if (swdir === "up") {
-            scdir = swdir;
-
-            _scrollY(obj);
-          } else if (swdir === "down" && obj.style.transform !== "translateY(0)") {
-            scdir = swdir;
-
-            _scrollY(obj);
-          }
-
-          e.stopPropagation();
-        }
-      }
-    }, false);
+  if (event.target == modalDelete) {
+    modalDelete.style.display = "none";
   }
-  /*[assignments]*/
-
-
-  var well = document.getElementById("sekcia");
-  well.style.transform = "translateY(0)";
-  well.addEventListener("wheel", function (e) {
-    if (e.deltaY < 0) {
-      scdir = "down";
-    }
-
-    if (e.deltaY > 0) {
-      scdir = "up";
-    }
-
-    e.stopPropagation();
-  });
-  well.addEventListener("wheel", _scrollY);
-
-  _swipe(well);
-
-  var tops = document.querySelectorAll(".top");
-
-  for (var i = 0; i < tops.length; i++) {
-    tops[i].addEventListener("click", function () {
-      scdir = "top";
-
-      _scrollY(well);
-    });
-  }
-})();
+};
 
 /***/ }),
 

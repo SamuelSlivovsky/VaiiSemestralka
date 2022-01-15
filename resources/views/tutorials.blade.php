@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('heading', 'Horolezectvo')
+
 @section('content')
 
     <section class="sekcia">

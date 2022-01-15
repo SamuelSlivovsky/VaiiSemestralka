@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddRoute;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\PathController;
+use App\Http\Controllers\UserController;
 use App\Models\Equipment;
 use App\Models\Path;
 use Illuminate\Support\Facades\Route;
@@ -31,8 +32,11 @@ Route::get('/lezenie-na-slovensku', function () {
 Route::get('/vybavenie', [EquipmentController::class, 'index']);
 
 Route::get('/cesty', [PathController::class, 'index']);
-
+Route::get('/profil', [UserController::class, 'index']);
 Route::get('/pridaj', function () {
+    return view('pridaj');
+});
+Route::get('/pridaj-eq', function () {
     return view('pridaj');
 });
 
@@ -40,5 +44,6 @@ Route::post('add', [PathController::class, 'addRoute']);
 Route::get('delete/{id}', [PathController::class, 'delete']);
 Route::post('add', [EquipmentController::class, 'addEquip']);
 Route::get('delete-eq/{id}', [EquipmentController::class, 'delete']);
-
+Route::get('delete-profile', [UserController::class, 'delete']);
+Route::post('update', [UserController::class, 'updateProfile']);
 require __DIR__ . '/auth.php';
