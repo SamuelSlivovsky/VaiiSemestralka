@@ -106,7 +106,7 @@
                     </div>
                     <div>
                         <label for="text">Text</label><br>
-                        <input id='text' type="text" name="text"><br>
+                        <textarea id='text' type="text" name="text"> </textarea><br>
                         <span style="color: red">@error('text'){{ $message }} @enderror</span><br>
                     </div>
                     <div>
