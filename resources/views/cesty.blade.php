@@ -32,8 +32,9 @@
                             </select>
                             </td>
                             <td>{{ $item->date }}</td>
-                            <td><input class='tries-input' data-id="{{ $item->id }}" type="number"
+                            <td><input id="only-numbers" class='tries-input' data-id="{{ $item->id }}" type="number"
                                     value="{{ $item->tries }}">
+                                <span id="error-tries" style="color: red">@error('tries'){{ $message }} @enderror</span>
                             </td>
                             <td><a href="delete/{{ $item->id }}" id="deleteButton">X</a></td>
                             </tr>

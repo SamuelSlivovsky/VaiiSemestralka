@@ -2228,7 +2228,7 @@ if (inputTries != null) {
       console.log(isNaN(inputTries.value));
       document.getElementById("error-tries").innerHTML = "Zadali ste nespravnu hodnotu, hodnotu zadavjte v tvare cisla";
     } else {
-      console.log(isNaN(inputTries.value));
+      //console.log(isNaN(inputTries.value));
       document.getElementById("error-tries").innerHTML = "";
     }
   });

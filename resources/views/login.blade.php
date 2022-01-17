@@ -13,7 +13,8 @@
                 <br>
                 <div>
                     <label for="email"> <b>E-mail</b></label>
-                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus />
+                    <input id="email" type="email" name="email" value="{{ old('email') }}"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required autofocus />
                 </div>
 
                 <!-- Password -->
