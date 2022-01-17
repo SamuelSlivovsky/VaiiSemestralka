@@ -49,9 +49,7 @@
                 <div id="deleteModal" class="modal">
 
                     <!-- Modal content -->
-                    <div class="modal-content">
-
-
+                    <div class="delete modal-content">
                         <span id="closeDelete" class="close">&times;</span>
                         <p>Ste si istý že si chcete vymazať profil?</p>
                         <a href="delete-profile" class="log-button">Ano</a>

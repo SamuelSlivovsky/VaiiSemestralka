@@ -42,7 +42,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div><a href="pridaj" id="addButton"><i class="large material-icons">add</i></a></div>
+                <div><a href="pridaj-cestu" id="addButton"><i class="large material-icons">add</i></a></div>
             </div>
         </section>
     @endauth

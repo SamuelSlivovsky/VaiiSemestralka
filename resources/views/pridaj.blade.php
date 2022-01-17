@@ -2,8 +2,7 @@
 
 @section('content')
     <section class="full-page">
-        @if (Request::is('pridaj'))
-
+        @if (Request::is('pridaj-cestu'))
             <div class="add-route-container">
                 @if (Session::get('success'))
                     {{ Session::get('success') }}
@@ -11,7 +10,7 @@
                 @if (Session::get('fail'))
                     fail
                 @endif
-                <form action="add" method="POST">
+                <form action="addR" method="POST">
                     @csrf
                     <div>
                         <label for="name">Názov</label><br>
@@ -19,7 +18,7 @@
                         <span style="color: red">@error('name'){{ $message }} @enderror</span>
                     </div>
                     <div><label for="">Obtiažnosť</label><br>
-                        <input type="text" name="difficulty"><br>
+                        <input class="max-two-chars" type="text" name="difficulty"><br>
                         <span style="color: red">@error('difficulty'){{ $message }} @enderror</span><br>
                     </div>
                     <div>
@@ -44,7 +43,6 @@
                         <button class='log-button' type="submit">SAVE</button>
                     </div>
                 </form>
-
             </div>
         @endif
 
@@ -57,7 +55,7 @@
                 @if (Session::get('fail'))
                     fail
                 @endif
-                <form action="add" method="POST">
+                <form action="addE" method="POST">
                     @csrf
                     <div>
                         <label for="category">Kategoria</label><br>
@@ -83,11 +81,50 @@
                         <span style="color: red">@error('pocet'){{ $message }} @enderror</span>
                     </div>
                     <div>
-                        <button class='registerbtn' type="submit">SAVE</button>
+                        <button class='log-button' type="submit">SAVE</button>
+                    </div>
+                </form>
+
+            </div>
+        @endif
+
+        @if (Request::is('pridaj-tutorial'))
+
+            <div class="add-route-container">
+                @if (Session::get('success'))
+                    {{ Session::get('success') }}
+                @endif
+                @if (Session::get('fail'))
+                    fail
+                @endif
+                <form action="addT" method="POST">
+                    @csrf
+                    <div><label for="nazov">Nazov</label><br>
+                        <input id='nazov' type="text" name="nazov"><br>
+                        <span style="color: red">@error('nazov'){{ $message }} @enderror</span><br>
+                    </div>
+                    <div>
+                        <label for="text">Text</label><br>
+                        <input id='text' type="text" name="text"><br>
+                        <span style="color: red">@error('text'){{ $message }} @enderror</span><br>
+                    </div>
+                    <div>
+                        <label for="video">Video</label><br>
+                        <input type="text" name="video"><br>
+                        <span style="color: red">@error('video'){{ $message }} @enderror</span>
+                    </div>
+                    <div>
+                        <label for="kod">Kod</label><br>
+                        <input type="text" name="kod"><br>
+                        <span style="color: red">@error('kod'){{ $message }} @enderror</span>
+                    </div>
+                    <div>
+                        <button class='log-button' type="submit">SAVE</button>
                     </div>
                 </form>
 
             </div>
         @endif
     </section>
+
 @endsection

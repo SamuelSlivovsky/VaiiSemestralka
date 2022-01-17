@@ -23,14 +23,6 @@
                     <span>@error('email'){{ $message }} @enderror</span>
                 </div>
 
-                <!-- Remember Me -->
-                <div>
-                    <label for="remember_me">
-                        <input id=" remember_me" type="checkbox" name="remember">
-                        <span>Remember me</span>
-                    </label>
-                </div>
-
                 <div>
 
                     <button class="log-button">

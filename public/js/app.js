@@ -2068,9 +2068,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _changeTries__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_changeTries__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _changeAscend__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./changeAscend */ "./resources/js/changeAscend.js");
 /* harmony import */ var _changeAscend__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_changeAscend__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modal */ "./resources/js/modal.js");
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modal__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _inputControl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./inputControl */ "./resources/js/inputControl.js");
+/* harmony import */ var _inputControl__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_inputControl__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modal */ "./resources/js/modal.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modal__WEBPACK_IMPORTED_MODULE_4__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -2194,14 +2197,36 @@ var logButton = document.getElementById("logButton");
 var isBlock = false;
 button.addEventListener("click", function () {
   x.classList.toggle("responsive");
-  button.classList.toggle("active"); // if (!isBlock) {
-  //     logButton.style.display = "block";
-  //     isBlock = true;
-  // } else {
-  //     logButton.style.display = "none";
-  //     isBlock = false;
-  // }
+  button.classList.toggle("active");
 });
+
+/***/ }),
+
+/***/ "./resources/js/inputControl.js":
+/*!**************************************!*\
+  !*** ./resources/js/inputControl.js ***!
+  \**************************************/
+/***/ (() => {
+
+var inputGrade = document.querySelector(".max-two-chars");
+console.log(inputGrade);
+
+var _loop = function _loop(i) {
+  var input = inputGrade[i];
+  input.addEventListener("change", function () {
+    checkGrade(input);
+  });
+};
+
+for (var i = 0; i < inputGrade.length; i++) {
+  _loop(i);
+}
+
+function checkGrade(input) {
+  if (input.value > 2) {
+    console.log("object");
+  }
+}
 
 /***/ }),
 
