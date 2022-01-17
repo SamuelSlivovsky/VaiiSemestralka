@@ -128,12 +128,15 @@ class TutorialController extends Controller
         return redirect('tutorials');
     }
 
-    // public function updateTutorial(Request $request)
-    // {
-
-    //     $request->validate(['nazov' => 'required', 'text' => 'required','video' => 'required','kod'=>'required']);
-    //     $updating = DB::table('tutorials')->where('id', Auth::id())->update(['name' => $request->input('name'), 'email' => $request->input('email')]);
-
-    //     return redirect('profil');
-    // }
+    public function updateTutorial(Request $request, $id)
+    {
+        if (Auth::id() == 1) {
+            $request->validate(['nazov' => 'required', 'text' => 'required', 'video' => 'required', 'kod' => 'required']);
+            $updating = DB::table('tutorials')->where('id', $id)->update([
+                'nazov' => $request->input('nazov'),
+                'video' => $request->input('video'), 'text' => $request->input('text'), 'kod' => $request->input('kod')
+            ]);
+        }
+        return redirect('tutorials');
+    }
 }

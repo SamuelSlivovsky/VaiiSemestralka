@@ -16,16 +16,18 @@
                         @foreach ($tutorials as $item)
                             <tr>
                                 <td><a href="tutorial/{{ $item->id }}">{{ $item->nazov }}</a></td>
-                                <td><a href="delete-tutorial/{{ $item->id }}" id="deleteButton">X</a></td>
+                                @if (Auth::id() == 1)
+                                    <td><a href="delete-tutorial/{{ $item->id }}" id="deleteButton">X</a></td>
+                                @endif
                         @endforeach
                         </tr>
                     </tbody>
                 </table>
-                @if (Auth::id() == 1)
-                    <div><a href="pridaj-tutorial" id="addTutorialButton"><i class="large material-icons">add</i></a></div>
-                @endif
-            </div>
 
+            </div>
+            @if (Auth::id() == 1)
+                <div><a href="pridaj-tutorial" id="addTutorialButton"><i class="large material-icons">add</i></a></div>
+            @endif
         </div>
     </section>
 

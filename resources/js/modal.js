@@ -1,36 +1,60 @@
 var modalEdit = document.getElementById("editModal");
 var modalDelete = document.getElementById("deleteModal");
-// Get the button that opens the modal
+var modalEditTutorial = document.getElementById("editTutorialModal");
+
 var btnEdit = document.getElementById("btnEdit");
 var btnDelete = document.getElementById("btnDelete");
+var btnEditTutorial = document.getElementById("btnEditTutorial");
 
-// Get the <span> element that closes the modal
 var spanEdit = document.getElementById("closeEdit");
 var spanDelete = document.getElementById("closeDelete");
+var spanEditTutorial = document.getElementById("closeEditTutorial");
 
-// When the user clicks the button, open the modal
-btnEdit.onclick = function () {
-    modalEdit.style.display = "block";
-};
+if (btnEdit != null) {
+    btnEdit.onclick = function () {
+        modalEdit.style.display = "block";
+    };
+}
 
-btnDelete.onclick = function () {
-    modalDelete.style.display = "block";
-};
-// When the user clicks on <span> (x), close the modal
-spanEdit.onclick = function () {
-    modalEdit.style.display = "none";
-};
+if (btnDelete != null) {
+    btnDelete.onclick = function () {
+        modalDelete.style.display = "block";
+    };
+}
 
-spanDelete.onclick = function () {
-    modalDelete.style.display = "none";
-};
+if (btnEditTutorial != null) {
+    btnEditTutorial.onclick = function () {
+        modalEditTutorial.style.display = "block";
+    };
+}
 
-// When the user clicks anywhere outside of the modal, close it
+if (spanEdit != null) {
+    spanEdit.onclick = function () {
+        modalEdit.style.display = "none";
+    };
+}
+
+if (spanDelete != null) {
+    spanDelete.onclick = function () {
+        modalDelete.style.display = "none";
+    };
+}
+
+if (spanEditTutorial != null) {
+    spanEditTutorial.onclick = function () {
+        modalEditTutorial.style.display = "none";
+    };
+}
+
 window.onclick = function (event) {
     if (event.target == modalEdit) {
         modalEdit.style.display = "none";
     }
     if (event.target == modalDelete) {
         modalDelete.style.display = "none";
+    }
+
+    if (event.target == modalEditTutorial) {
+        modalEditTutorial.style.display = "none";
     }
 };

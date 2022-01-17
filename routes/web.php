@@ -63,4 +63,5 @@ Route::get('delete-eq/{id}', [EquipmentController::class, 'delete']);
 Route::get('delete-profile', [UserController::class, 'delete']);
 Route::get('delete-tutorial/{id}', [TutorialController::class, 'delete']);
 Route::post('update', [UserController::class, 'updateProfile']);
+Route::post('tutorial/update-tutorial/{id}', [TutorialController::class, 'updateTutorial']);
 require __DIR__ . '/auth.php';

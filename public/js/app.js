@@ -2208,24 +2208,30 @@ button.addEventListener("click", function () {
   \**************************************/
 /***/ (() => {
 
-var inputGrade = document.querySelector(".max-two-chars");
-console.log(inputGrade);
+var inputGrade = document.getElementById("max-two-chars");
 
-var _loop = function _loop(i) {
-  var input = inputGrade[i];
-  input.addEventListener("change", function () {
-    checkGrade(input);
+if (inputGrade != null) {
+  inputGrade.addEventListener("change", function () {
+    if (inputGrade.value > 2 || isNaN(inputGrade.value[0]) && (inputGrade.value[1] != "+" || "-") && inputGrade.value != "" || isNaN(inputGrade.value[0]) && inputGrade.value != "") {
+      document.getElementById("error-two-chars").innerHTML = "Zadali ste nespravnu hodnotu, hodnotu zadavjte v tvare cislo plus znamienko +/- [6 alebo 6+ alebo 6-]";
+    } else {
+      document.getElementById("error-two-chars").innerHTML = "";
+    }
   });
-};
-
-for (var i = 0; i < inputGrade.length; i++) {
-  _loop(i);
 }
 
-function checkGrade(input) {
-  if (input.value > 2) {
-    console.log("object");
-  }
+var inputTries = document.getElementById("only-numbers");
+
+if (inputTries != null) {
+  inputTries.addEventListener("change", function () {
+    if (isNaN(inputTries.value)) {
+      console.log(isNaN(inputTries.value));
+      document.getElementById("error-tries").innerHTML = "Zadali ste nespravnu hodnotu, hodnotu zadavjte v tvare cisla";
+    } else {
+      console.log(isNaN(inputTries.value));
+      document.getElementById("error-tries").innerHTML = "";
+    }
+  });
 }
 
 /***/ }),
@@ -2237,31 +2243,50 @@ function checkGrade(input) {
 /***/ (() => {
 
 var modalEdit = document.getElementById("editModal");
-var modalDelete = document.getElementById("deleteModal"); // Get the button that opens the modal
-
+var modalDelete = document.getElementById("deleteModal");
+var modalEditTutorial = document.getElementById("editTutorialModal");
 var btnEdit = document.getElementById("btnEdit");
-var btnDelete = document.getElementById("btnDelete"); // Get the <span> element that closes the modal
-
+var btnDelete = document.getElementById("btnDelete");
+var btnEditTutorial = document.getElementById("btnEditTutorial");
 var spanEdit = document.getElementById("closeEdit");
-var spanDelete = document.getElementById("closeDelete"); // When the user clicks the button, open the modal
+var spanDelete = document.getElementById("closeDelete");
+var spanEditTutorial = document.getElementById("closeEditTutorial");
 
-btnEdit.onclick = function () {
-  modalEdit.style.display = "block";
-};
+if (btnEdit != null) {
+  btnEdit.onclick = function () {
+    modalEdit.style.display = "block";
+  };
+}
 
-btnDelete.onclick = function () {
-  modalDelete.style.display = "block";
-}; // When the user clicks on <span> (x), close the modal
+if (btnDelete != null) {
+  btnDelete.onclick = function () {
+    modalDelete.style.display = "block";
+  };
+}
 
+if (btnEditTutorial != null) {
+  btnEditTutorial.onclick = function () {
+    modalEditTutorial.style.display = "block";
+  };
+}
 
-spanEdit.onclick = function () {
-  modalEdit.style.display = "none";
-};
+if (spanEdit != null) {
+  spanEdit.onclick = function () {
+    modalEdit.style.display = "none";
+  };
+}
 
-spanDelete.onclick = function () {
-  modalDelete.style.display = "none";
-}; // When the user clicks anywhere outside of the modal, close it
+if (spanDelete != null) {
+  spanDelete.onclick = function () {
+    modalDelete.style.display = "none";
+  };
+}
 
+if (spanEditTutorial != null) {
+  spanEditTutorial.onclick = function () {
+    modalEditTutorial.style.display = "none";
+  };
+}
 
 window.onclick = function (event) {
   if (event.target == modalEdit) {
@@ -2270,6 +2295,10 @@ window.onclick = function (event) {
 
   if (event.target == modalDelete) {
     modalDelete.style.display = "none";
+  }
+
+  if (event.target == modalEditTutorial) {
+    modalEditTutorial.style.display = "none";
   }
 };
 

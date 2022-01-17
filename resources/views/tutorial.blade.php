@@ -6,7 +6,7 @@
     <div class="sirka-stranky">
         <div class="ako-uzol">
             <h2>{{ $tutorials->nazov }}</h2>
-            <button type="button" id="tutorialEditBtn">Edit</button>
+            <button type="button" id="btnEditTutorial">Edit</button>
             <div class="clanok-uzol">
                 <div class="text-ako-uzol">
                     <p>
@@ -20,11 +20,11 @@
         </div>
 
 
-        {{-- <div id="editTutorialModal" class="modal">
+        <div id="editTutorialModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
 
-                <span id="closeEdit" class="close">&times;</span>
+                <span id="closeEditTutorial" class="close">&times;</span>
                 <div class="add-route-container">
                     @if (Session::get('success'))
                         {{ Session::get('success') }}
@@ -32,23 +32,31 @@
                     @if (Session::get('fail'))
                         fail
                     @endif
-                    <form action="updateTutorial" method="POST">
+                    <form action="update-tutorial/{{ $tutorials->id }}" method="POST">
                         @csrf
                         <div>
-                            <label for="name">Meno</label><br>
-                            <input id='name' type="text" name="name"><br>
-                            <span style="color: red">@error('name'){{ $message }} @enderror</span>
+                            <label for="nazov">Nazov</label><br>
+                            <input id='nazov' type="text" name="nazov" value="{{ $tutorials->nazov }}"><br>
+                            <span style="color: red">@error('nazov'){{ $message }} @enderror</span>
                         </div>
-                        <div><label for="">Email</label><br>
-                            <input type="text" name="email"><br>
-                            <span style="color: red">@error('email'){{ $message }} @enderror</span><br>
+                        <div><label for="">Text</label><br>
+                            <input type="text" name="text" value="{{ $tutorials->text }}"><br>
+                            <span style="color: red">@error('text'){{ $message }} @enderror</span><br>
+                        </div>
+                        <div><label for="">Video</label><br>
+                            <input type="text" name="video" value="{{ $tutorials->video }}"><br>
+                            <span style="color: red">@error('video'){{ $message }} @enderror</span><br>
+                        </div>
+                        <div><label for="">Kod</label><br>
+                            <input type="text" name="kod" value="{{ $tutorials->kod }}"><br>
+                            <span style="color: red">@error('kod'){{ $message }} @enderror</span><br>
                         </div>
                         <div>
                             <button class='log-button' type="submit">SAVE</button>
                         </div>
                     </form>
                 </div>
-            </div> --}}
+            </div>
 
         </div>
     </div>

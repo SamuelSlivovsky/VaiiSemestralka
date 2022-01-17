@@ -31,11 +31,12 @@
                                 @csrf
                                 <div>
                                     <label for="name">Meno</label><br>
-                                    <input id='name' type="text" name="name"><br>
+                                    <input id='name' type="text" name="name" value="{{ $item->name }}"><br>
                                     <span style="color: red">@error('name'){{ $message }} @enderror</span>
                                 </div>
-                                <div><label for="">Email</label><br>
-                                    <input type="text" name="email"><br>
+                                <div><label for="email">Email</label><br>
+                                    <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                        value="{{ $item->email }}"><br>
                                     <span style="color: red">@error('email'){{ $message }} @enderror</span><br>
                                 </div>
                                 <div>

@@ -312,6 +312,7 @@ body {
 .table-tutorial {
     margin-top: 10px;
     border-radius: 5px;
+    width: 30%;
 }
 
 .fl-table {
@@ -327,8 +328,8 @@ body {
 }
 
 .tutorials {
-    width: 20%;
-    max-width: 20%;
+    width: 100%;
+    float: left;
 }
 .fl-table td,
 .fl-table th {
@@ -455,7 +456,6 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-
     justify-content: center;
     align-items: center;
     display: flex;
@@ -465,13 +465,11 @@ body {
     background-color: white;
     color: black;
     border: 2px solid #85ffc7;
-    padding: 3px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    width: 18.3%;
-    max-width: 18.3%;
-
+    margin-top: 11.5rem;
+    width: 100%;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -511,7 +509,15 @@ body {
 }
 
 /*----------RESPONZIVITA-----------*/
+@media screen and (max-width: 700px) {
+    .table-tutorial {
+        width: 67.1%;
+    }
 
+    .tutorials thead {
+        float: none;
+    }
+}
 @media screen and (max-width: 700px) {
     .landing h1 {
         font-size: 50px;
@@ -622,6 +628,24 @@ body {
         display: block;
         text-align: center;
         width: 100%;
+    }
+
+    .tutorials thead {
+        float: none;
+        width: 100%;
+    }
+
+    .tutorials td,
+    .tutorials th {
+        padding: 20px 0.625em 0.625em 0.625em;
+        height: 60px;
+        vertical-align: none;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 100%;
+        font-size: 13px;
+        text-overflow: ellipsis;
     }
 }
 @media screen and (max-width: 900px) {

@@ -18,8 +18,9 @@
                         <span style="color: red">@error('name'){{ $message }} @enderror</span>
                     </div>
                     <div><label for="">Obtiažnosť</label><br>
-                        <input class="max-two-chars" type="text" name="difficulty"><br>
-                        <span style="color: red">@error('difficulty'){{ $message }} @enderror</span><br>
+                        <input id="max-two-chars" type="text" name="difficulty"><br>
+                        <span id="error-two-chars" style="color: red">@error('difficulty'){{ $message }}
+                            @enderror</span><br>
                     </div>
                     <div>
                         <label for="">Typ výstupu</label><br>
@@ -36,8 +37,8 @@
                     </div>
                     <div>
                         <label for="">Počet pokusov</label><br>
-                        <input type="text" name="tries"><br>
-                        <span style="color: red">@error('tries'){{ $message }} @enderror</span>
+                        <input id="only-numbers" type="text" name="tries"><br>
+                        <span id="error-tries" style="color: red">@error('tries'){{ $message }} @enderror</span>
                     </div>
                     <div>
                         <button class='log-button' type="submit">SAVE</button>
@@ -77,8 +78,8 @@
                     </div>
                     <div>
                         <label for="pocet">Počet </label><br>
-                        <input type="text" name="pocet"><br>
-                        <span style="color: red">@error('pocet'){{ $message }} @enderror</span>
+                        <input id="only-numbers" type="text" name="pocet"><br>
+                        <span id="error-tries" style="color: red">@error('pocet'){{ $message }} @enderror</span>
                     </div>
                     <div>
                         <button class='log-button' type="submit">SAVE</button>

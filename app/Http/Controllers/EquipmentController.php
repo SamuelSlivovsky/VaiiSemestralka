@@ -49,7 +49,6 @@ class EquipmentController extends Controller
 
     public function delete($id)
     {
-
         $delete = DB::table('equipment')->where('id', $id)->where('user_id', Auth::id())->delete();
         return redirect('vybavenie');
     }
