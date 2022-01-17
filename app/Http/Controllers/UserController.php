@@ -20,6 +20,12 @@ class UserController extends Controller
         return view('profil', ['users' => $user->where('id',  Auth::id())]);
     }
 
+    /**
+     * updateProfile
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function updateProfile(Request $request)
     {
 
@@ -28,6 +34,11 @@ class UserController extends Controller
 
         return redirect('profil');
     }
+    /**
+     * delete
+     *
+     * @return void
+     */
     public function delete()
     {
 

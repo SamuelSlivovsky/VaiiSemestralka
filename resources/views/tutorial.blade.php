@@ -5,8 +5,8 @@
 
     <div class="sirka-stranky">
         <div class="ako-uzol">
-            <h2>{{ $tutorials->nazov }}</h2>
-            <button type="button" id="btnEditTutorial">Edit</button>
+            <h2>{{ $tutorials->nazov }} <button type="button" id="btnEditTutorial">Edit</button></h2>
+
             <div class="clanok-uzol">
                 <div class="text-ako-uzol">
                     <p>
@@ -40,7 +40,7 @@
                             <span style="color: red">@error('nazov'){{ $message }} @enderror</span>
                         </div>
                         <div><label for="">Text</label><br>
-                            <input type="text" name="text" value="{{ $tutorials->text }}"><br>
+                            <textarea type="text" name="text">{{ $tutorials->text }} </textarea><br>
                             <span style="color: red">@error('text'){{ $message }} @enderror</span><br>
                         </div>
                         <div><label for="">Video</label><br>

@@ -20,13 +20,24 @@ class PathController extends Controller
         $paths = Path::all();
         return view('cesty', ['paths' => $paths->where('user_id',  Auth::id())]);
     }
-
+    
+    /**
+     * routeAdd
+     *
+     * @return void
+     */
     public function routeAdd()
     {
         return view('addRoute');
     }
 
-
+    
+    /**
+     * changeTries
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function changeTries(Request $request)
     {
 
@@ -44,7 +55,13 @@ class PathController extends Controller
         $path->save(); //ulozenie
         return response()->json(['success' => 'success'], 200);
     }
-
+    
+    /**
+     * changeAscend
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function changeAscend(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -62,7 +79,13 @@ class PathController extends Controller
         $path->save(); //ulozenie
         return response()->json(['success' => 'success'], 200);
     }
-
+    
+    /**
+     * addRoute
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function addRoute(Request $request)
     {
 
@@ -85,7 +108,13 @@ class PathController extends Controller
 
         return redirect('cesty');
     }
-
+    
+    /**
+     * delete
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function delete($id)
     {
 

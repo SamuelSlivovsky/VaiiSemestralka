@@ -21,11 +21,22 @@ class EquipmentController extends Controller
     }
 
 
+    /**
+     * equipAdd
+     *
+     * @return void
+     */
     public function equipAdd()
     {
         return view('addEquip');
     }
 
+    /**
+     * addEquip
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function addEquip(Request $request)
     {
 
@@ -47,6 +58,12 @@ class EquipmentController extends Controller
         return redirect('vybavenie');
     }
 
+    /**
+     * delete
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function delete($id)
     {
         $delete = DB::table('equipment')->where('id', $id)->where('user_id', Auth::id())->delete();

@@ -40,6 +40,12 @@ class AuthenticatedSessionController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
+     */    
+    /**
+     * destroy
+     *
+     * @param  mixed $request
+     * @return void
      */
     public function destroy(Request $request)
     {

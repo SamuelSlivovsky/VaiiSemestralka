@@ -302,6 +302,20 @@ body {
     margin: 0;
 }
 
+#btnEditTutorial {
+    float: right;
+    display: block;
+    width: fit-content;
+    background: #415a77;
+    border: none;
+    color: white;
+    padding: 13.5px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: Calibri;
+}
+
 /*TABULKY*/
 .table-wrapper {
     box-sizing: border-box;
