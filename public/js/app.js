@@ -2264,11 +2264,9 @@ if (btnDelete != null) {
   };
 }
 
-if (btnEditTutorial != null) {
-  btnEditTutorial.onclick = function () {
-    modalEditTutorial.style.display = "block";
-  };
-}
+btnEditTutorial.onclick = function () {
+  modalEditTutorial.style.display = "block";
+};
 
 if (spanEdit != null) {
   spanEdit.onclick = function () {

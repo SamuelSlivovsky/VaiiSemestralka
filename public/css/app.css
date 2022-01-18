@@ -4909,7 +4909,6 @@ body {
     font-family: Calibri;
     margin: 0;
 }
-
 #btnEditTutorial {
     float: right;
     display: block;
@@ -4924,6 +4923,8 @@ body {
     text-decoration: none;
     font-size: 25px;
     font-family: Calibri;
+    cursor: pointer;
+   
 }
 
 /*TABULKY*/
@@ -5327,7 +5328,6 @@ body {
     .tutorials th {
         padding: 20px 0.625em 0.625em 0.625em;
         height: 60px;
-        vertical-align: none;
         box-sizing: border-box;
         overflow-x: hidden;
         overflow-y: auto;

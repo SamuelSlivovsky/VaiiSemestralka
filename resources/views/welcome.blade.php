@@ -10,7 +10,7 @@
                 <div class="clanok-lez">
                     <div class="obrazok">
                         <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1103&q=80"
-                            class="obr1" />
+                            class="obr1" alt="o1" />
                     </div>
 
                     <div class="lez-text">

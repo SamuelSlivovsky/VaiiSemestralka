@@ -1,6 +1,4 @@
 @extends('layouts.app')
-
-
 @section('content')
     <section class="full-page">
         <div class="regContainer">
