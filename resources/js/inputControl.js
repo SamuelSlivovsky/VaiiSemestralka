@@ -20,11 +20,9 @@ var inputTries = document.getElementById("only-numbers");
 if (inputTries != null) {
     inputTries.addEventListener("change", function () {
         if (isNaN(inputTries.value)) {
-            console.log(isNaN(inputTries.value));
             document.getElementById("error-tries").innerHTML =
                 "Zadali ste nespravnu hodnotu, hodnotu zadavjte v tvare cisla";
         } else {
-            //console.log(isNaN(inputTries.value));
             document.getElementById("error-tries").innerHTML = "";
         }
     });

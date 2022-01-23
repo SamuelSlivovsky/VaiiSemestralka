@@ -22,9 +22,11 @@ if (btnDelete != null) {
     };
 }
 
-btnEditTutorial.onclick = function () {
-    modalEditTutorial.style.display = "block";
-};
+if (btnEditTutorial != null) {
+    btnEditTutorial.onclick = function () {
+        modalEditTutorial.style.display = "block";
+    };
+}
 
 if (spanEdit != null) {
     spanEdit.onclick = function () {
