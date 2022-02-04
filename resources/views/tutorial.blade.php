@@ -5,7 +5,7 @@
 
     <div class="sirka-stranky">
         <div class="ako-uzol">
-            <h2>{{ $tutorials->nazov }} @if (Auth::id() == 1)<button type="button" id="btnEditTutorial">Edit</button>@endif</h2>
+            <h2>{{ $tutorials->nazov }} @if (Auth::id() == 1)<button type="button" class = "btnEditTutorial"id="btnEdit">Edit</button>@endif</h2>
 
             <div class="clanok-uzol">
                 <div class="text-ako-uzol">
@@ -21,11 +21,11 @@
 
 
         @if (Auth::id() == 1)
-            <div id="editTutorialModal" class="modal">
+            <div id="editModal" class="modal">
                 <!-- Modal content -->
                 <div class="modal-content">
 
-                    <span id="closeEditTutorial" class="close">&times;</span>
+                    <span id="closeEdit" class="close">&times;</span>
                     <div class="add-route-container">
                         @if (Session::get('success'))
                             {{ Session::get('success') }}

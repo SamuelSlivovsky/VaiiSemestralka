@@ -4909,7 +4909,7 @@ body {
     font-family: Calibri;
     margin: 0;
 }
-#btnEditTutorial {
+.btnEditTutorial {
     float: right;
     display: block;
     width: -webkit-fit-content;

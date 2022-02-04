@@ -1,14 +1,10 @@
 <?php
 
-use App\Http\Controllers\AddRoute;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PathController;
 use App\Http\Controllers\TutorialController;
 use App\Http\Controllers\UserController;
-use App\Models\Equipment;
-use App\Models\Path;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +51,7 @@ Route::get('delete/{id}', [PathController::class, 'delete']);
 Route::post('addE', [EquipmentController::class, 'addEquip']);
 Route::post('addT', [TutorialController::class, 'addTutorial']);
 Route::post('addL', [LocationController::class, 'addLocation']);
+Route::post('addC/{id}', [LocationController::class, 'addComment']);
 Route::get('delete-eq/{id}', [EquipmentController::class, 'delete']);
 Route::get('delete-profile', [UserController::class, 'delete']);
 Route::get('lezenie-na-slovensku/delete-tutorial/{id}', [TutorialController::class, 'delete']);

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Location;
+use App\Models\Locations;
+use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 
 class LocationController extends Controller
 {
@@ -17,13 +18,15 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $locations = Location::all();
-        return view('lezSVK', ['locations' => $locations]);
+
+        $comments = Comment::all();
+        $locations = Locations::all();
+        return view('lezSVK', ['locations' => $locations, 'comments' => $comments]);
     }
 
     public function edit($id)
     {
-        $locations = Location::find($id);
+        $locations = Locations::find($id);
         return view('editLokaciu', ['locations' => $locations]);
     }
 
@@ -66,6 +69,23 @@ class LocationController extends Controller
             'lokacia' => $request->input('lokacia'),
         ]);
 
+        return redirect('lezenie-na-slovensku');
+    }
+
+    public function addComment(Request $request, $location_id)
+    {
+
+        $request->validate([
+            'text' => 'required',
+        ]);
+        $user = User::find(Auth::id());
+        $location = Locations::find($location_id);
+        $comment = new Comment();
+        $comment->user_name = $user->name;
+        $comment->text = $request->text;
+        $comment->user_id = $user->id;
+        $comment->locations_id = $location->id;
+        $comment->save();
         return redirect('lezenie-na-slovensku');
     }
 }
