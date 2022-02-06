@@ -1,14 +1,9 @@
 var modalEdit = document.getElementById("editModal");
 var modalDelete = document.getElementById("deleteModal");
-//var modalEditTutorial = document.getElementById("editTutorialModal");
-
 var btnEdit = document.getElementById("btnEdit");
 var btnDelete = document.getElementById("btnDelete");
-//var btnEditTutorial = document.getElementById("btnEditTutorial");
-
 var spanEdit = document.getElementById("closeEdit");
 var spanDelete = document.getElementById("closeDelete");
-//var spanEditTutorial = document.getElementById("closeEditTutorial");
 
 if (btnEdit != null) {
     btnEdit.onclick = function () {
@@ -22,12 +17,6 @@ if (btnDelete != null) {
     };
 }
 
-/*if (btnEditTutorial != null) {
-    btnEditTutorial.onclick = function () {
-        modalEditTutorial.style.display = "block";
-    };
-}*/
-
 if (spanEdit != null) {
     spanEdit.onclick = function () {
         modalEdit.style.display = "none";
@@ -40,12 +29,6 @@ if (spanDelete != null) {
     };
 }
 
-/*if (spanEditTutorial != null) {
-    spanEditTutorial.onclick = function () {
-        modalEditTutorial.style.display = "none";
-    };
-}*/
-
 window.onclick = function (event) {
     if (event.target == modalEdit) {
         modalEdit.style.display = "none";
@@ -53,8 +36,4 @@ window.onclick = function (event) {
     if (event.target == modalDelete) {
         modalDelete.style.display = "none";
     }
-
-    /*if (event.target == modalEditTutorial) {
-        modalEditTutorial.style.display = "none";
-    }*/
 };

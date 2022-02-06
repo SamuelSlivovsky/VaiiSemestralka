@@ -21,6 +21,7 @@ class CommentsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('locations_id')->references('id')->on('locations')->onDelete('cascade');
             $table->text('text');
+            $table->timestamps();
         });
     }
 

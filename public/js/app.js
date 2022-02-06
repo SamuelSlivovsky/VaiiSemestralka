@@ -2212,7 +2212,11 @@ var inputGrade = document.getElementById("max-two-chars");
 
 if (inputGrade != null) {
   inputGrade.addEventListener("change", function () {
-    if (inputGrade.value > 2 || isNaN(inputGrade.value[0]) && (inputGrade.value[1] != "+" || "-") && inputGrade.value != "" || isNaN(inputGrade.value[0]) && inputGrade.value != "") {
+    console.log(inputGrade.value);
+
+    if (inputGrade.value[2] != null) {
+      document.getElementById("error-two-chars").innerHTML = "Zadali ste nespravnu hodnotu, hodnotu zadavjte v tvare cislo plus znamienko +/- [6 alebo 6+ alebo 6-]";
+    } else if (isNaN(inputGrade.value[0]) && (inputGrade.value[1] != "+" || "-") && inputGrade.value != "" || isNaN(inputGrade.value[0]) && inputGrade.value != "") {
       document.getElementById("error-two-chars").innerHTML = "Zadali ste nespravnu hodnotu, hodnotu zadavjte v tvare cislo plus znamienko +/- [6 alebo 6+ alebo 6-]";
     } else {
       document.getElementById("error-two-chars").innerHTML = "";
@@ -2241,13 +2245,11 @@ if (inputTries != null) {
 /***/ (() => {
 
 var modalEdit = document.getElementById("editModal");
-var modalDelete = document.getElementById("deleteModal"); //var modalEditTutorial = document.getElementById("editTutorialModal");
-
+var modalDelete = document.getElementById("deleteModal");
 var btnEdit = document.getElementById("btnEdit");
-var btnDelete = document.getElementById("btnDelete"); //var btnEditTutorial = document.getElementById("btnEditTutorial");
-
+var btnDelete = document.getElementById("btnDelete");
 var spanEdit = document.getElementById("closeEdit");
-var spanDelete = document.getElementById("closeDelete"); //var spanEditTutorial = document.getElementById("closeEditTutorial");
+var spanDelete = document.getElementById("closeDelete");
 
 if (btnEdit != null) {
   btnEdit.onclick = function () {
@@ -2260,12 +2262,6 @@ if (btnDelete != null) {
     modalDelete.style.display = "block";
   };
 }
-/*if (btnEditTutorial != null) {
-    btnEditTutorial.onclick = function () {
-        modalEditTutorial.style.display = "block";
-    };
-}*/
-
 
 if (spanEdit != null) {
   spanEdit.onclick = function () {
@@ -2278,12 +2274,6 @@ if (spanDelete != null) {
     modalDelete.style.display = "none";
   };
 }
-/*if (spanEditTutorial != null) {
-    spanEditTutorial.onclick = function () {
-        modalEditTutorial.style.display = "none";
-    };
-}*/
-
 
 window.onclick = function (event) {
   if (event.target == modalEdit) {
@@ -2293,10 +2283,6 @@ window.onclick = function (event) {
   if (event.target == modalDelete) {
     modalDelete.style.display = "none";
   }
-  /*if (event.target == modalEditTutorial) {
-      modalEditTutorial.style.display = "none";
-  }*/
-
 };
 
 /***/ }),

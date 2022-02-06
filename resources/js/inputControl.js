@@ -1,8 +1,11 @@
 var inputGrade = document.getElementById("max-two-chars");
 if (inputGrade != null) {
     inputGrade.addEventListener("change", function () {
-        if (
-            inputGrade.value > 2 ||
+        console.log(inputGrade.value);
+        if (inputGrade.value[2] != null) {
+            document.getElementById("error-two-chars").innerHTML =
+                "Zadali ste nespravnu hodnotu, hodnotu zadavjte v tvare cislo plus znamienko +/- [6 alebo 6+ alebo 6-]";
+        } else if (
             (isNaN(inputGrade.value[0]) &&
                 (inputGrade.value[1] != "+" || "-") &&
                 inputGrade.value != "") ||

@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
     <section class="sekcia">
         @foreach ($locations as $item)
@@ -17,28 +16,61 @@
                                 {{ $item->text }}
                             </p>
                         </div>
-                        @foreach ($comments as $itemComment)
-                            @if ($itemComment->locations_id == $item->id)
-                                <h1>{{ $itemComment->user_name }}</h1>
-                                <p>
-                                    {{ $itemComment->text }}
-                                </p>
-                            @endif
-                        @endforeach
 
-                        @if (Session::get('success'))
-                            {{ Session::get('success') }}
-                        @endif
-                        @if (Session::get('fail'))
-                            fail
-                        @endif
-                        <form action="addC/{{ $item->id }}" method="POST">
-                            @csrf
-                            <textarea name="text"></textarea>
-                            <div>
-                                <button class='log-button' type="submit">SAVE</button>
+                    </div>
+
+                    <button class="log-button" id="btn{{ $item->id }}"> Zobraziť komentáre</button>
+                    <div id="modal{{ $item->id }}" class="modal">
+                        <div class="komentare">
+                            <div class="modal-content">
+                                <span id="close{{ $item->id }}" class="close">&times;</span>
+                                <h1>Komentáre k článku {{ $item->nazov }}</h1>
+                                @foreach ($comments as $itemComment)
+                                    @if ($itemComment->locations_id == $item->id)
+                                        <div class="komentar">
+                                            <h2>{{ $itemComment->user_name }} {{ $itemComment->created_at }}</h2>
+                                            <p>
+                                                {{ $itemComment->text }}
+                                            </p>
+                                            @if ($itemComment->user_id == Auth::id() || Auth::id() == 1)
+                                                <a href="delete-comment/{{ $itemComment->id }}"
+                                                    class="deleteButton {{ $itemComment->id }}">X</a>
+                                            @endif
+                                        </div>
+                                    @endif
+                                @endforeach
+
+                                @auth
+                                    <textarea id="comment-area{{ $item->id }}" name="text"
+                                        style="resize: none; max-width: 100%; width: 100%;height: 100px"></textarea>
+                                    <div>
+                                        <button class='log-button' id="addCommentBtn{{ $item->id }}"
+                                            type="button">KOMENTOVAŤ</button>
+                                    </div>
+
+                                    <script>
+                                        var btn{{ $item->id }} = document.getElementById("addCommentBtn" + {{ $item->id }});
+                                        var text{{ $item->id }} = document.getElementById("comment-area" + {{ $item->id }});
+                                        btn{{ $item->id }}.addEventListener("click", function() {
+                                            axios
+                                                .post("/api/comments", {
+                                                    locations_id: parseInt({{ $item->id }}),
+                                                    text: text{{ $item->id }}.value,
+                                                })
+                                                .then(function(response) {
+                                                    console.log(response);
+                                                    text{{ $item->id }}.value = "";
+                                                    location.reload();
+                                                })
+                                                .catch(function(error) {
+                                                    console.log(error);
+                                                });
+
+                                        })
+                                    </script>
+                                @endauth
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
                 <div class="clanok-drevenik">
@@ -49,7 +81,29 @@
                     </div>
                 </div>
             </div>
+            <script>
+                var modal{{ $item->id }} = document.getElementById("modal" + {{ $item->id }});
+                var btn{{ $item->id }} = document.getElementById("btn" + {{ $item->id }});
+                var span{{ $item->id }} = document.getElementById("close" + {{ $item->id }});
+                if (btn{{ $item->id }} != null) {
+                    btn{{ $item->id }}.onclick = function() {
+                        modal{{ $item->id }}.style.display = "block";
+                    };
+                }
+
+                if (span{{ $item->id }} != null) {
+                    span{{ $item->id }}.onclick = function() {
+                        modal{{ $item->id }}.style.display = "none";
+                    };
+                }
+                window.onclick = function(event) {
+                    if (event.target == modal{{ $item->id }}) {
+                        modal{{ $item->id }}.style.display = "none";
+                    }
+                };
+            </script>
         @endforeach
+
         @if (Auth::id() == 1)
             <a href="pridaj-lokaciu" id="addButton"><i class="large material-icons">add</i></a>
         @endif

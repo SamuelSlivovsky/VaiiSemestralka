@@ -18,8 +18,6 @@
                 </div>
             </div>
         </div>
-
-
         @if (Auth::id() == 1)
             <div id="editModal" class="modal">
                 <!-- Modal content -->
@@ -61,7 +59,6 @@
 
             </div>
     </div>
-
     @endif
 
 

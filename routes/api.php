@@ -1,8 +1,7 @@
 <?php
 
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PathController;
-use App\Models\Path;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +21,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->post('/tries', [PathController::class, 'changeTries']);
 Route::middleware('auth:sanctum')->post('/ascendType', [PathController::class, 'changeAscend']);
+Route::middleware('auth:sanctum')->post('/comments', [LocationController::class, 'addComment']);

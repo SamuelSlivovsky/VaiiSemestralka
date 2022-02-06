@@ -54,6 +54,7 @@ Route::post('addL', [LocationController::class, 'addLocation']);
 Route::post('addC/{id}', [LocationController::class, 'addComment']);
 Route::get('delete-eq/{id}', [EquipmentController::class, 'delete']);
 Route::get('delete-profile', [UserController::class, 'delete']);
+Route::get('delete-comment/{id}', [LocationController::class, 'deleteComment']);
 Route::get('lezenie-na-slovensku/delete-tutorial/{id}', [TutorialController::class, 'delete']);
 Route::get('delete-location/{id}', [LocationController::class, 'delete']);
 Route::post('update', [UserController::class, 'updateProfile']);

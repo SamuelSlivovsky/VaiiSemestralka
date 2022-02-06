@@ -72,20 +72,31 @@ class LocationController extends Controller
         return redirect('lezenie-na-slovensku');
     }
 
-    public function addComment(Request $request, $location_id)
+    public function addComment(Request $request)
     {
 
-        $request->validate([
-            'text' => 'required',
-        ]);
-        $user = User::find(Auth::id());
-        $location = Locations::find($location_id);
-        $comment = new Comment();
-        $comment->user_name = $user->name;
-        $comment->text = $request->text;
-        $comment->user_id = $user->id;
-        $comment->locations_id = $location->id;
-        $comment->save();
+        if (Auth::id() != 0) {
+            $request->validate([
+                'text' => 'required',
+                'locations_id' => 'required',
+            ]);
+
+            $user = User::find(Auth::id());
+            $comment = new Comment();
+            $comment->user_name = $user->name;
+            $comment->text = $request->text;
+            $comment->locations_id = $request->locations_id;
+            $comment->user_id = $user->id;
+            $comment->save();
+            return response()->json(['success' => 'success'], 200);
+        }
+    }
+
+    public function deleteComment($id)
+    {
+        if (Auth::id() != 0) {
+            $delete = DB::table('comments')->where('id', $id)->delete();
+        }
         return redirect('lezenie-na-slovensku');
     }
 }
