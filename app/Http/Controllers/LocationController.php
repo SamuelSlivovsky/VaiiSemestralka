@@ -19,7 +19,7 @@ class LocationController extends Controller
     public function index()
     {
 
-        $comments = Comment::all();
+        $comments = Comment::all()->sortBy('created_at', SORT_REGULAR, true);
         $locations = Locations::all();
         return view('lezSVK', ['locations' => $locations, 'comments' => $comments]);
     }
