@@ -53,20 +53,21 @@ class TutorialController extends Controller
     public function addTutorial(Request $request)
     {
 
-        $request->validate([
-            'nazov' => 'required',
-            'text' => 'required',
-            'video' => 'required',
-            'kod' => 'required',
-        ]);
+        if (Auth::id() == 1) {
+            $request->validate([
+                'nazov' => 'required',
+                'text' => 'required',
+                'video' => 'required',
+                'kod' => 'required',
+            ]);
 
-        DB::table('tutorials')->insert([
-            'nazov' => $request->input('nazov'),
-            'text' => $request->input('text'),
-            'video' => $request->input('video'),
-            'kod' => $request->input('kod'),
-        ]);
-
+            DB::table('tutorials')->insert([
+                'nazov' => $request->input('nazov'),
+                'text' => $request->input('text'),
+                'video' => $request->input('video'),
+                'kod' => $request->input('kod'),
+            ]);
+        }
         return redirect('tutorials');
     }
 

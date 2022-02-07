@@ -55,20 +55,22 @@ class LocationController extends Controller
     public function addLocation(Request $request)
     {
 
-        $request->validate([
-            'nazov' => 'required',
-            'text' => 'required',
-            'obrazok' => 'required',
-            'lokacia' => 'required',
-        ]);
+        if (Auth::id() == 1) {
 
-        DB::table('locations')->insert([
-            'nazov' => $request->input('nazov'),
-            'text' => $request->input('text'),
-            'obrazok' => $request->input('obrazok'),
-            'lokacia' => $request->input('lokacia'),
-        ]);
+            $request->validate([
+                'nazov' => 'required',
+                'text' => 'required',
+                'obrazok' => 'required',
+                'lokacia' => 'required',
+            ]);
 
+            DB::table('locations')->insert([
+                'nazov' => $request->input('nazov'),
+                'text' => $request->input('text'),
+                'obrazok' => $request->input('obrazok'),
+                'lokacia' => $request->input('lokacia'),
+            ]);
+        }
         return redirect('lezenie-na-slovensku');
     }
 
