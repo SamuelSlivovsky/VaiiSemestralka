@@ -21,17 +21,17 @@
 
                     <button class="log-button" id="btn{{ $item->id }}"> Zobraziť komentáre</button>
                     <div id="modal{{ $item->id }}" class="modal">
-                        <div class="komentare">
-                            <div class="modal-content">
-                                <span id="close{{ $item->id }}" class="close">&times;</span>
+                        <div class="modal-content">
+                            <span id="close{{ $item->id }}" class="close">&times;</span>
+                            <div class="komentare">
                                 <h1>Komentáre k článku {{ $item->nazov }}</h1>
                                 @foreach ($comments as $itemComment)
                                     @if ($itemComment->locations_id == $item->id)
                                         <div class="komentar">
                                             <h2>{{ $itemComment->user_name }} {{ $itemComment->created_at }}</h2>
-                                            <p>
-                                                {{ $itemComment->text }}
-                                            </p>
+
+                                            <p>{{ $itemComment->text }}</p>
+
                                             @if ($itemComment->user_id == Auth::id() || Auth::id() == 1)
                                                 <a href="delete-comment/{{ $itemComment->id }}"
                                                     class="deleteButton {{ $itemComment->id }}">X</a>
@@ -39,8 +39,8 @@
                                         </div>
                                     @endif
                                 @endforeach
-
-                                @auth
+                            </div>
+                            <div class="komentovat"> @auth
                                     <textarea id="comment-area{{ $item->id }}" name="text"
                                         style="resize: none; max-width: 100%; width: 100%;height: 100px"></textarea>
                                     <div>
@@ -70,6 +70,8 @@
                                     </script>
                                 @endauth
                             </div>
+
+
                         </div>
                     </div>
                 </div>
