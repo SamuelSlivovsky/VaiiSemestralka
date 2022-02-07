@@ -42,7 +42,7 @@
                             <span id="error-tries" style="color: red">@error('tries'){{ $message }} @enderror</span>
                         </div>
                         <div>
-                            <button class='log-button' type="submit">SAVE</button>
+                            <button class='log-button' id="submit-button" type="submit">SAVE</button>
                         </div>
                     </form>
                 </div>
@@ -83,7 +83,7 @@
                             <span id="error-tries" style="color: red">@error('pocet'){{ $message }} @enderror</span>
                         </div>
                         <div>
-                            <button class='log-button' type="submit">SAVE</button>
+                            <button class='log-button' id="submit-button" type="submit">SAVE</button>
                         </div>
                     </form>
 
@@ -121,7 +121,7 @@
                             <span style="color: red">@error('kod'){{ $message }} @enderror</span>
                         </div>
                         <div>
-                            <button class='log-button' type="submit">SAVE</button>
+                            <button class='log-button' id="submit-button" type="submit">SAVE</button>
                         </div>
                     </form>
 
@@ -160,7 +160,7 @@
                             <span style="color: red">@error('lokacia'){{ $message }} @enderror</span>
                         </div>
                         <div>
-                            <button class='log-button' type="submit">SAVE</button>
+                            <button class='log-button' id="submit-button" type="submit">SAVE</button>
                         </div>
                     </form>
 
